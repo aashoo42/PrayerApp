@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.7.1)
+  - AlamofireImage (3.4.1):
+    - Alamofire (~> 4.7)
+  - ReachabilitySwift (4.3.1)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Alamofire (= 4.7.1)
+  - AlamofireImage
+  - ReachabilitySwift (= 4.3.1)
+  - SVProgressHUD
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - ReachabilitySwift
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 1661ea364c1752de9925c3e92307a7c7bfbf0985
+
+COCOAPODS: 1.9.1
