@@ -12,7 +12,7 @@ pod 'AlamofireImage'
 pod 'ReachabilitySwift', '4.3.1'
 pod 'SVProgressHUD'
 
-# pod 'Google-Mobile-Ads-SDK'
+ pod 'Google-Mobile-Ads-SDK'
 
 
 end

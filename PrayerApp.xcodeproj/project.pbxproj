@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042DD1582439A13700A8BC93 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DD1572439A13700A8BC93 /* LocationVC.swift */; };
+		042DD15A2439A1BE00A8BC93 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DD1592439A1BE00A8BC93 /* CityCell.swift */; };
 		04D3EAC92438BD470001ABDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EAC82438BD470001ABDD /* AppDelegate.swift */; };
-		04D3EACD2438BD470001ABDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EACC2438BD470001ABDD /* ViewController.swift */; };
+		04D3EACD2438BD470001ABDD /* PrayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D3EACC2438BD470001ABDD /* PrayerVC.swift */; };
 		04D3EAD02438BD470001ABDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D3EACE2438BD470001ABDD /* Main.storyboard */; };
 		04D3EAD22438BD480001ABDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D3EAD12438BD480001ABDD /* Assets.xcassets */; };
 		04D3EAD52438BD480001ABDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D3EAD32438BD480001ABDD /* LaunchScreen.storyboard */; };
@@ -19,9 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042DD1572439A13700A8BC93 /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
+		042DD1592439A1BE00A8BC93 /* CityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		04D3EAC52438BD470001ABDD /* PrayerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrayerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3EAC82438BD470001ABDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04D3EACC2438BD470001ABDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04D3EACC2438BD470001ABDD /* PrayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerVC.swift; sourceTree = "<group>"; };
 		04D3EACF2438BD470001ABDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04D3EAD12438BD480001ABDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04D3EAD42438BD480001ABDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,7 +73,9 @@
 			children = (
 				04D3EADE2438CB220001ABDD /* Utils */,
 				04D3EAC82438BD470001ABDD /* AppDelegate.swift */,
-				04D3EACC2438BD470001ABDD /* ViewController.swift */,
+				042DD1572439A13700A8BC93 /* LocationVC.swift */,
+				042DD1592439A1BE00A8BC93 /* CityCell.swift */,
+				04D3EACC2438BD470001ABDD /* PrayerVC.swift */,
 				04D3EADC2438C4A00001ABDD /* PrayerCell.swift */,
 				04D3EACE2438BD470001ABDD /* Main.storyboard */,
 				04D3EAD12438BD480001ABDD /* Assets.xcassets */,
@@ -221,10 +227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D3EAE22438CB220001ABDD /* AppUtils.swift in Sources */,
-				04D3EACD2438BD470001ABDD /* ViewController.swift in Sources */,
+				04D3EACD2438BD470001ABDD /* PrayerVC.swift in Sources */,
 				04D3EAE12438CB220001ABDD /* DataModel.swift in Sources */,
 				04D3EADD2438C4A00001ABDD /* PrayerCell.swift in Sources */,
 				04D3EAC92438BD470001ABDD /* AppDelegate.swift in Sources */,
+				042DD15A2439A1BE00A8BC93 /* CityCell.swift in Sources */,
+				042DD1582439A13700A8BC93 /* LocationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,15 +377,18 @@
 			baseConfigurationReference = DF90B51E44C58855ED8553E5 /* Pods-PrayerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = HR558286L3;
 				INFOPLIST_FILE = PrayerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aashoo.PrayerApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.absoluit.umiRides;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Umi_Dev_New;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,15 +399,18 @@
 			baseConfigurationReference = 58E7FCA71E95B526C5EABBFF /* Pods-PrayerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = HR558286L3;
 				INFOPLIST_FILE = PrayerApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = aashoo.PrayerApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.absoluit.umiRides;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Umi_Dev_New;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

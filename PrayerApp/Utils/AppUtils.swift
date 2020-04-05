@@ -78,7 +78,10 @@ class AppUtils: NSObject, UIActionSheetDelegate, UIImagePickerControllerDelegate
                         print("unable to parse response: ", response.result.value)
                     }
                 }else{
-                    closure(response.result.value as! NSDictionary)
+                    if (response.result.value is NSDictionary){
+                        closure(response.result.value as! NSDictionary)
+                    }
+                    
                     print("Error in: \(urlString)\nResponse: \(response.result.value ?? "")")
                 }
             }

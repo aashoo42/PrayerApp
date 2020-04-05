@@ -19,7 +19,7 @@ extension Date {
 
 import UIKit
 
-class ViewController: UIViewController {
+class PrayerVC: UIViewController {
 
     @IBOutlet weak var prayerTableView: UITableView!
     @IBOutlet weak var dateLbl: UILabel!
@@ -31,17 +31,30 @@ class ViewController: UIViewController {
     
     private var showHijri = true
     
+    var cityData = NSDictionary()
+    
+    private var currentCity = ""
+    private var currentState = ""
+    private var currentCountry = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.isHidden = true
+        
         setupDates()
-        getPrayerDataFromAPI()
+        
+        currentCity = cityData["city"] as! String
+        currentCountry = cityData["country"] as! String
+        currentState = cityData["state"] as! String
+        
+        getPrayerDataFromAPI(city: currentCity, country: currentCountry)
     }
     
     // MARK:- Namaz time
     func setupRemaininTime(){
 
-        let (namazName, timeRemaining) = getTimeBetweenPrayers()
+        var (namazName, timeRemaining) = getTimeBetweenPrayers()
         
         upcomingPrayerLbl.text = namazName
         
@@ -49,6 +62,7 @@ class ViewController: UIViewController {
             remainingTimeLbl.text = "--"
         }else{
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { (_) in
+                timeRemaining = timeRemaining - 1
                 let (h,m,s) = self.secondsToHoursMinutesSeconds(seconds: timeRemaining)
                 self.remainingTimeLbl.text = "\(h):\(m):\(s)"
             }
@@ -133,6 +147,7 @@ class ViewController: UIViewController {
     
     // MARK:- Dates
     func setupDates(){
+        self.dateLbl.text = self.getHijriDate()
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { (_) in
             self.showHijri = !self.showHijri
             UIView.animate(withDuration: 1.0) {
@@ -164,15 +179,15 @@ class ViewController: UIViewController {
     
     //MARK:- API
 
-    func getPrayerDataFromAPI(){
+    func getPrayerDataFromAPI(city: String, country: String){
         let headers = [
             "x-rapidapi-host": "aladhan.p.rapidapi.com",
             "x-rapidapi-key": "c4b7f6c03amshb614de998b9c9dap1a91e3jsncbcc3a6c56b3"
         ]
 
         let urlStr = "https://aladhan.p.rapidapi.com/timingsByCity?"
-        let params = ["city": "wah",
-                      "country":"pakistan"]
+        let params = ["city": city,
+                      "country": country]
         
         AppUtils.sharedUtils.getRestAPIResponse(urlString: urlStr, headers: headers as NSDictionary, parameters: params as NSDictionary, method: .get) { (data) in
             if (data["code"] as! Int64) == 200{
@@ -180,6 +195,8 @@ class ViewController: UIViewController {
                 self.prayerData = data["data"] as! NSDictionary
                 self.setupRemaininTime()
                 self.prayerTableView.reloadData()
+                
+                (UIApplication.shared.delegate as! AppDelegate).saveCityToDefault(cityDict: self.cityData)
             }
         }
     }
@@ -187,7 +204,7 @@ class ViewController: UIViewController {
 }
 
 // MARK:- UITableView
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
+extension PrayerVC: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -233,7 +250,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
         let dateLbl = UILabel(frame: headerView.frame)
         dateLbl.textAlignment = .center
-        dateLbl.text = "Selected City"
+        dateLbl.text = "\(currentCity), \(currentState), \(currentCountry)"
+        dateLbl.font = .boldSystemFont(ofSize: 20)
+        
         headerView.addSubview(dateLbl)
 
         return headerView

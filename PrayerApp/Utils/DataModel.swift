@@ -100,6 +100,6 @@ struct AppColors {
 }
 
 struct AdsIds {
-    static let bannerID = "ca-app-pub-3958262971096234/2122208954" // test
-    static let interstitialID = "ca-app-pub-3958262971096234/8435308199" // test
+    static let bannerID = "ca-app-pub-3958262971096234/8157242065" // test
+    static let interstitialID = "ca-app-pub-3958262971096234/3551782647" // test
 }
